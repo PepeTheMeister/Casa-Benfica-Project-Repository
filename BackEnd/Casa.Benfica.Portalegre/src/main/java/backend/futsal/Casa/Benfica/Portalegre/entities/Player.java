@@ -1,6 +1,6 @@
 package backend.futsal.Casa.Benfica.Portalegre.entities;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,6 +21,9 @@ public class Player {
 	private int number;
 	
 	private Date birthDate;
+
+	protected Player() {
+	}
 
 	public Player(int id, String fullName, String nickName, int number, Date birthDate) {
 		super();
