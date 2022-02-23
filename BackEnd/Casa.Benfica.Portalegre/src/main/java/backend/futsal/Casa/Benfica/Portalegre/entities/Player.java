@@ -12,7 +12,7 @@ public class Player {
 
 	@Id
 	@GeneratedValue
-	private int id;
+	private long id;
 	
 	private String fullName;
 	
@@ -22,23 +22,26 @@ public class Player {
 	
 	private Date birthDate;
 
-	protected Player() {
+	private Date lastModify;
+
+	public Player() {
 	}
 
-	public Player(int id, String fullName, String nickName, int number, Date birthDate) {
+	public Player(long id, String fullName, String nickName, int number, Date birthDate, Date lastModify) {
 		super();
 		this.id = id;
 		this.fullName = fullName;
 		this.nickName = nickName;
 		this.number = number;
 		this.birthDate = birthDate;
+		this.lastModify = lastModify;
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -73,8 +76,12 @@ public class Player {
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
-	
-	
-	
 
+	public Date getLastModify() {
+		return lastModify;
+	}
+
+	public void setLastModify(Date lastModify) {
+		this.lastModify = lastModify;
+	}
 }

@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public class PlayerDto {
 
-    private int id;
+    private long id;
 
     private String fullName;
 
@@ -17,7 +17,7 @@ public class PlayerDto {
 
     private Date birthDate;
 
-    public PlayerDto(int id, String fullName, String nickName, int number, Date birthDate) {
+    public PlayerDto(long id, String fullName, String nickName, int number, Date birthDate) {
         this.id = id;
         this.fullName = fullName;
         this.nickName = nickName;
@@ -33,7 +33,7 @@ public class PlayerDto {
         this.birthDate = player.getBirthDate();
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

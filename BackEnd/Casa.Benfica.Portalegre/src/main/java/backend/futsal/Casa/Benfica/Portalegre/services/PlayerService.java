@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import backend.futsal.Casa.Benfica.Portalegre.repositories.PlayerRepository;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,18 +27,33 @@ public class PlayerService {
 
 
     public void addPlayer(Player player) {
+        player.setLastModify(new Date(System.currentTimeMillis()));
         playerRepository.save(player);
     }
 
-    public void updatePlayer(Player player){
-        playerRepository.save(player);
+    public boolean updatePlayer(Player player){
+        if(playerRepository.existsById(player.getId())){
+            playerRepository.save(player);
+            return true;
+        }
+        else{
+            return false;
+        }
+
     }
-    public Player getPlayer(int id){
+    public Player findPlayerById(long id){
         Optional<Player> optPlayer = playerRepository.findById(id);
         return optPlayer.orElse(null);
     }
 
-    public void deletePlayerById(int id) {
-        playerRepository.deleteById(id);
+    public boolean deletePlayerById(long id) {
+        if(playerRepository.existsById(id)){
+            playerRepository.deleteById(id);
+            return true;
+        }
+        else{
+            return false;
+        }
+
     }
 }
