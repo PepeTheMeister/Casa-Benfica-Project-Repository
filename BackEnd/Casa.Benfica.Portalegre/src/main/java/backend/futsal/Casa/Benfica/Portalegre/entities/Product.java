@@ -4,6 +4,7 @@ package backend.futsal.Casa.Benfica.Portalegre.entities;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import java.util.Date;
 
 @Entity
@@ -12,6 +13,7 @@ public class Product {
 
     @Id
     @GeneratedValue
+    @SequenceGenerator(name="product_generator", sequenceName ="product_seq")
     long id;
 
     String name;

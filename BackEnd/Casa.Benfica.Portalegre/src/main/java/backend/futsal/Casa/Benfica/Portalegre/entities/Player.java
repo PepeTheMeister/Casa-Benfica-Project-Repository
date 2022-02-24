@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 
 @Entity
 public class Player {
@@ -12,6 +13,7 @@ public class Player {
 
 	@Id
 	@GeneratedValue
+	@SequenceGenerator(name="player_generator", sequenceName ="player_seq")
 	private long id;
 	
 	private String fullName;

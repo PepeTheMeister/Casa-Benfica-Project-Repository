@@ -1,10 +1,7 @@
 package backend.futsal.Casa.Benfica.Portalegre.entities;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -12,6 +9,7 @@ public class AdminUser {
 
     @Id
     @GeneratedValue
+    @SequenceGenerator(name="adminUser_generator", sequenceName ="adminUser_seq")
     private Long id;
 
     private String username;
