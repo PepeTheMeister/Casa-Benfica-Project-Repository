@@ -16,7 +16,7 @@ public class Product {
 
     String name;
 
-    String Description;
+    String description;
 
     Double value;
 
@@ -28,7 +28,7 @@ public class Product {
     public Product(long id, String name, String description, Double value, Date lastModify) {
         this.id = id;
         this.name = name;
-        Description = description;
+        this.description = description;
         this.value = value;
         this.lastModify = lastModify;
     }
@@ -50,11 +50,11 @@ public class Product {
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String description) {
-        Description = description;
+        this.description = description;
     }
 
     public Double getValue() {

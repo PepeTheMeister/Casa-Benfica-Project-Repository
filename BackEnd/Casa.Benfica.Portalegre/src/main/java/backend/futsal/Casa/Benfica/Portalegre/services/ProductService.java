@@ -5,6 +5,11 @@ import backend.futsal.Casa.Benfica.Portalegre.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class ProductService {
 
@@ -13,6 +18,39 @@ public class ProductService {
 
 
     public void addProduct(Product product) {
+        product.setLastModify(new Date(System.currentTimeMillis()));
         productRepository.save(product);
+    }
+
+    public List<Product> getAllProducts() {
+        List<Product> listAllProducts = new ArrayList<>();
+        productRepository.findAll().forEach(listAllProducts::add);
+        return listAllProducts;
+    }
+
+    public Product findPlayerById(long id) {
+        Optional<Product> optProduct = productRepository.findById(id);
+        return optProduct.orElse(null);
+    }
+
+    public boolean deleteProductById(long id) {
+        if(productRepository.existsById(id)){
+            productRepository.deleteById(id);
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public boolean updateProduct(Product product) {
+        if(productRepository.existsById(product.getId())){
+            product.setLastModify(new Date(System.currentTimeMillis()));
+            productRepository.save(product);
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 }

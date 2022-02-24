@@ -33,6 +33,7 @@ public class PlayerService {
 
     public boolean updatePlayer(Player player){
         if(playerRepository.existsById(player.getId())){
+            player.setLastModify(new Date(System.currentTimeMillis()));
             playerRepository.save(player);
             return true;
         }

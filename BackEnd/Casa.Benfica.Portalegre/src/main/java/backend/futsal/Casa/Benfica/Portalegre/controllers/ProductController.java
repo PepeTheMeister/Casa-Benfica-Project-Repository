@@ -8,8 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/product")
 public class ProductController {
 
 
@@ -18,10 +19,61 @@ public class ProductController {
 
     ResponseEntity<Object> response;
 
-    @PostMapping("/add")
+    @PostMapping("/product")
     public ResponseEntity<Object> addProduct(@RequestBody Product product){
         productService.addProduct(product);
-
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
+
+    @GetMapping("/products")
+    public ResponseEntity<Object> getAllProducts(){
+        List<Product> listProducts = productService.getAllProducts();
+
+        if(listProducts.isEmpty()){
+            response = new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        else{
+            response = new ResponseEntity<>(listProducts, HttpStatus.OK);
+        }
+
+        return response;
+
+    }
+
+    @GetMapping("product/{id}")
+    public ResponseEntity<Object> findPlayerById(@PathVariable long id){
+        Product product = productService.findPlayerById(id);
+
+        if(product != null){
+            response = new ResponseEntity<>(product, HttpStatus.OK);
+        }
+        else{
+            response = new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+
+        return response;
+    }
+
+    @DeleteMapping("product/{id}")
+    public ResponseEntity<Object> deleteProductById(@PathVariable long id){
+        if(productService.deleteProductById(id)){
+            response = new ResponseEntity<>(HttpStatus.OK);
+        }
+        else{
+            response = new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return response;
+    }
+
+    @PutMapping("product")
+    public ResponseEntity<Object> updateProduct(@RequestBody Product product){
+        if(productService.updateProduct(product)){
+            response = new ResponseEntity<>(HttpStatus.OK);
+        }
+        else{
+            response = new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return response;
+    }
+
 }
