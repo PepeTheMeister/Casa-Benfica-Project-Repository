@@ -2,6 +2,7 @@ package backend.futsal.Casa.Benfica.Portalegre.services;
 
 
 
+import backend.futsal.Casa.Benfica.Portalegre.dto.PlayerDto;
 import backend.futsal.Casa.Benfica.Portalegre.entities.Player;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,9 +43,13 @@ public class PlayerService {
         }
 
     }
-    public Player findPlayerById(long id){
+    public PlayerDto findPlayerById(long id){
         Optional<Player> optPlayer = playerRepository.findById(id);
-        return optPlayer.orElse(null);
+        PlayerDto playerDto = null;
+        if(optPlayer.orElse(null) != null){
+            playerDto = new PlayerDto(optPlayer.orElse(null));
+        }
+        return playerDto;
     }
 
     public boolean deletePlayerById(long id) {

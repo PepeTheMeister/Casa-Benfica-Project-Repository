@@ -1,6 +1,7 @@
 package backend.futsal.Casa.Benfica.Portalegre.services;
 
 
+import backend.futsal.Casa.Benfica.Portalegre.dto.AdminUserDto;
 import backend.futsal.Casa.Benfica.Portalegre.entities.AdminUser;
 import backend.futsal.Casa.Benfica.Portalegre.repositories.AdminUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +21,9 @@ public class AdminUserService {
         return adminUserRepository.save(adminUser);
     }
 
-    public AdminUser getAdminUserById(long id) {
+    public AdminUserDto getAdminUserById(long id) {
         Optional<AdminUser> optAdminUser = adminUserRepository.findById(id);
-        return optAdminUser.orElse(null);
+        return optAdminUser.orElse(null) != null ? new AdminUserDto(optAdminUser.orElse(null)) : null;
     }
 
     public boolean updateAdminUser(AdminUser adminUser) {

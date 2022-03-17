@@ -2,6 +2,7 @@ package backend.futsal.Casa.Benfica.Portalegre.controllers;
 
 import java.util.List;
 
+import backend.futsal.Casa.Benfica.Portalegre.dto.PlayerDto;
 import backend.futsal.Casa.Benfica.Portalegre.services.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -33,9 +34,9 @@ public class PlayerController {
 
 	@RequestMapping("players/{id}")
 	public ResponseEntity<Object> getPlayerById(@PathVariable long id){
-		Player player = playerService.findPlayerById(id);
-		if(player != null){
-			response = new ResponseEntity<>(player, HttpStatus.OK);
+		PlayerDto playerDto = playerService.findPlayerById(id);
+		if(playerDto != null){
+			response = new ResponseEntity<>(playerDto, HttpStatus.OK);
 		}
 		else{
 			response = new ResponseEntity<>(HttpStatus.NO_CONTENT);

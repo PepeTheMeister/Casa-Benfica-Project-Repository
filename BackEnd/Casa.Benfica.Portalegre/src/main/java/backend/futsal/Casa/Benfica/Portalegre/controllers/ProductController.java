@@ -1,6 +1,7 @@
 package backend.futsal.Casa.Benfica.Portalegre.controllers;
 
 
+import backend.futsal.Casa.Benfica.Portalegre.dto.ProductDto;
 import backend.futsal.Casa.Benfica.Portalegre.entities.Product;
 import backend.futsal.Casa.Benfica.Portalegre.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,10 +43,10 @@ public class ProductController {
 
     @GetMapping("product/{id}")
     public ResponseEntity<Object> findPlayerById(@PathVariable long id){
-        Product product = productService.findPlayerById(id);
+        ProductDto productDto = productService.findProductById(id);
 
-        if(product != null){
-            response = new ResponseEntity<>(product, HttpStatus.OK);
+        if(productDto != null){
+            response = new ResponseEntity<>(productDto, HttpStatus.OK);
         }
         else{
             response = new ResponseEntity<>(HttpStatus.NO_CONTENT);

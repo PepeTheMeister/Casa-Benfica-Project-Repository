@@ -1,6 +1,7 @@
 package backend.futsal.Casa.Benfica.Portalegre.controllers;
 
 
+import backend.futsal.Casa.Benfica.Portalegre.dto.AdminUserDto;
 import backend.futsal.Casa.Benfica.Portalegre.entities.AdminUser;
 import backend.futsal.Casa.Benfica.Portalegre.services.AdminUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,9 +27,9 @@ public class AdminUserController {
 
     @GetMapping("/adminUser{id}")
     public ResponseEntity<Object> getAdminUserByID(@PathVariable long id){
-        AdminUser adminUser = adminUserService.getAdminUserById(id);
-        if(adminUser != null){
-            response = new ResponseEntity<>(adminUser, HttpStatus.OK);
+        AdminUserDto adminUserDto = adminUserService.getAdminUserById(id);
+        if(adminUserDto != null){
+            response = new ResponseEntity<>(adminUserDto, HttpStatus.OK);
         }
         else{
             response = new ResponseEntity<>(HttpStatus.NO_CONTENT);

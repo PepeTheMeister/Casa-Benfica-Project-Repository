@@ -1,5 +1,6 @@
 package backend.futsal.Casa.Benfica.Portalegre.services;
 
+import backend.futsal.Casa.Benfica.Portalegre.dto.ProductDto;
 import backend.futsal.Casa.Benfica.Portalegre.entities.Product;
 import backend.futsal.Casa.Benfica.Portalegre.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,9 +29,9 @@ public class ProductService {
         return listAllProducts;
     }
 
-    public Product findPlayerById(long id) {
+    public ProductDto findProductById(long id) {
         Optional<Product> optProduct = productRepository.findById(id);
-        return optProduct.orElse(null);
+        return optProduct.orElse(null) != null ? new ProductDto(optProduct.orElse(null)) : null;
     }
 
     public boolean deleteProductById(long id) {

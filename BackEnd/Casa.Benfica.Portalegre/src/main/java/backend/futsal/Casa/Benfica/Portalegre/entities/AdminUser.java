@@ -10,7 +10,7 @@ public class AdminUser {
     @Id
     @GeneratedValue
     @SequenceGenerator(name="adminUser_generator", sequenceName ="adminUser_seq")
-    private Long id;
+    private long id;
 
     private String username;
 
@@ -22,18 +22,18 @@ public class AdminUser {
     public AdminUser() {
     }
 
-    public AdminUser(Long id, String username, String password, Date lastModify) {
+    public AdminUser(long id, String username, String password, Date lastModify) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.lastModify = lastModify;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

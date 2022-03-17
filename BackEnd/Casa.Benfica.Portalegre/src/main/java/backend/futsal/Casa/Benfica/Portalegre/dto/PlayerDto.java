@@ -3,7 +3,6 @@ package backend.futsal.Casa.Benfica.Portalegre.dto;
 import backend.futsal.Casa.Benfica.Portalegre.entities.Player;
 
 import java.util.Date;
-import java.util.Optional;
 
 public class PlayerDto {
 
