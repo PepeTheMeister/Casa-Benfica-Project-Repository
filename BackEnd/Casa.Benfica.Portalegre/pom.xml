@@ -31,7 +31,8 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-		<!-- SpringBoot Security  -/-><dependency>
+		<!-- SpringBoot Security  -/->
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
@@ -45,7 +46,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
-		<!-/- -->
+		<!-/- SpringBoot Security -->
 	</dependencies>
 
 	<build>

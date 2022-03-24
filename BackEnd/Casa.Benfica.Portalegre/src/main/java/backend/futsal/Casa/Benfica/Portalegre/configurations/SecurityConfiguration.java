@@ -1,6 +1,7 @@
 package backend.futsal.Casa.Benfica.Portalegre.configurations;
 
 
+/*
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -21,4 +22,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/").permitAll();
     }
+
+    <!-/- SpringBoot Security -->
 }
+*/
+
