@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import AdminNav from "../components/admin/AdminNav";
+import AdminNav from "../../components/admin/AdminNav";
 import AdminPlayersPage from "./AdminPlayersPage";
 import AdminProductsPage from "./AdminProductsPage";
 

@@ -1,5 +1,5 @@
-import PlayersTable from "../components/admin/Player/PlayersTable";
-import AddPlayers from "../components/admin/Player/AddPlayers";
+import PlayersTable from "../../components/admin/Player/AdminPlayersTable";
+import AddPlayers from "../../components/admin/Player/AddPlayers";
 
 import axios from "axios";
 
@@ -26,7 +26,7 @@ function AdminPlayersPage(){
         });
     }
 
-    getAllPlayers();
+    //getAllPlayers();
 
 
     return(
